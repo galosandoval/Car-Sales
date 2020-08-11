@@ -1,3 +1,5 @@
+import { addNewFeature, removeFeature } from "../actions";
+
 export const initialState = {
   additionalPrice: 0,
   car: {
@@ -16,14 +18,14 @@ export const initialState = {
 };
 
 export const appReducer = (state = initialState, action) => {
-  console.log(state)
-  switch(action.type) {
-    case 'ADD_FEATURE': 
-      return {
-        
-      }
-      default:
-        return state;
+  console.log(state);
+  switch (action.type) {
+    case addNewFeature:
+      console.log('ive been clicked')
+      return null;
+    case removeFeature:
+      return null;
+    default:
+      return state;
   }
-  
-}
+};
