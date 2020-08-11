@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
 };
 
 const App = (props) => {
-  console.log(props.car);
+  console.log(props.store);
   
 
   return (

@@ -20,11 +20,29 @@ export const initialState = {
 export const appReducer = (state = initialState, action) => {
   console.log(state);
   switch (action.type) {
-    case addNewFeature:
-      console.log('ive been clicked')
-      return null;
-    case removeFeature:
-      return null;
+    case "ADD_FEATURE":
+      console.log("ive been clicked");
+      return {
+        ...state,
+        car: {
+          ...state.car,
+          features: state.car.features.includes(action.payload)
+            ? [state.car.features]
+            : [state.car.features, action.payload],
+        },
+        additionalPrice: (state.additionalPrice += action.payload.price),
+      };
+    case "REMOVE_FEATURE":
+      return {
+        ...state,
+        car: {
+          ...state.car,
+          features: state.car.features.filter(
+            (feature) => feature.id !== action.payload.id
+          ),
+        },
+        additionalPrice: state.additionalPrice -= action.price.payload
+      };
     default:
       return state;
   }

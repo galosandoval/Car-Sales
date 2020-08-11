@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { addNewFeature } from "../actions/index";
 
 const AdditionalFeatures = (props) => {
-  console.log(props.store)
+  console.log(props.store);
   return (
     <div className="content">
       <h4>Additional Features</h4>
