@@ -19,6 +19,11 @@ export const appReducer = (state = initialState, action) => {
   console.log(state)
   switch(action.type) {
     case 'ADD_FEATURE': 
+      return {
+        
+      }
+      default:
+        return state;
   }
-  return state
+  
 }
