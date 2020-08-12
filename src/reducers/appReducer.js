@@ -1,4 +1,4 @@
-import { addNewFeature, removeFeature } from "../actions";
+import { ADD_FEATURE, REMOVE_FEATURE } from "../actions";
 
 export const initialState = {
   additionalPrice: 0,
@@ -18,9 +18,8 @@ export const initialState = {
 };
 
 export const appReducer = (state = initialState, action) => {
-  console.log(state);
   switch (action.type) {
-    case "ADD_FEATURE":
+    case ADD_FEATURE:
       console.log("ive been clicked");
       return {
         ...state,
@@ -32,7 +31,7 @@ export const appReducer = (state = initialState, action) => {
         },
         additionalPrice: (state.additionalPrice += action.payload.price),
       };
-    case "REMOVE_FEATURE":
+    case REMOVE_FEATURE:
       return {
         ...state,
         car: {
