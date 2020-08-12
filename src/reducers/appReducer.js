@@ -37,6 +37,12 @@ export const appReducer = (state = initialState, action) => {
         additionalPrice: (state.additionalPrice += action.payload.price),
       };
     case REMOVE_FEATURE:
+      const oldFeature = action.payload
+      const remainingOldFeatures = [
+        ...state.additionalFeatures.filter(
+          (item) => item.id !== action.payload.id
+        ),
+      ];
       return {
         ...state,
         car: {
@@ -45,6 +51,7 @@ export const appReducer = (state = initialState, action) => {
             (feature) => feature.id !== action.payload.id
           ),
         },
+        additionalFeatures: [...remainingOldFeatures, oldFeature],
         additionalPrice: (state.additionalPrice -= action.payload.price),
       };
     default:
