@@ -21,14 +21,19 @@ export const appReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_FEATURE:
       console.log("ive been clicked");
+      const newFeature = action.payload;
+      const remainingFeatures = [
+        ...state.additionalFeatures.filter(
+          (item) => item.id !== action.payload.id
+        ),
+      ];
       return {
         ...state,
         car: {
           ...state.car,
-          features: state.car.features.includes(action.payload)
-            ? [state.car.features]
-            : [state.car.features, action.payload],
+          features: [...state.car.features, newFeature]
         },
+        additionalFeatures: [...remainingFeatures],
         additionalPrice: (state.additionalPrice += action.payload.price),
       };
     case REMOVE_FEATURE:
