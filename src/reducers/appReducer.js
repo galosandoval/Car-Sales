@@ -40,7 +40,7 @@ export const appReducer = (state = initialState, action) => {
             (feature) => feature.id !== action.payload.id
           ),
         },
-        additionalPrice: state.additionalPrice -= action.price.payload
+        additionalPrice: (state.additionalPrice -= action.price.payload),
       };
     default:
       return state;
